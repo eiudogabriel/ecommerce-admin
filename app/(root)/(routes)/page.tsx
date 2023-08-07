@@ -19,11 +19,7 @@ const SetupPage = () => {
     //TODO: HANDLE CLOSE THE MODAL
   }
 
-  return (
-    <div className="flex flex-col h-full gap-y-3 pt-2 justify-center items-center">
-      root page
-    </div>
-  );
+  return null;
 }
 
 export default SetupPage;
