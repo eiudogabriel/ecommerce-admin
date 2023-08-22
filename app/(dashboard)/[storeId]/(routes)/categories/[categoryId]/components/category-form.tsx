@@ -50,10 +50,10 @@ export const CategoryForm: React.FC<CategoryFormProps> = ({ initialData, billboa
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const title = initialData ? "Edit Category" : "Create Category";
-  const description = initialData ? "Edit a Category" : "Add a new Category";
-  const toastMessage = initialData ? "Category updated." : "Category created.";
-  const action = initialData ? "Save changes" : "Create";
+  const title = initialData ? "Editar Categoria" : "Criar Categoria";
+  const description = initialData ? "Edite a categoria" : "Adicione uma nova categoria";
+  const toastMessage = initialData ? "Category atualizada." : "Category criada.";
+  const action = initialData ? "Salvar Alterações" : "Criar";
 
   const form = useForm<CategoryFormValues>({
     resolver: zodResolver(formSchema),
@@ -78,7 +78,7 @@ export const CategoryForm: React.FC<CategoryFormProps> = ({ initialData, billboa
       router.push(`/${params.storeId}/categories`);
       toast.success(toastMessage);
     } catch (error) {
-      toast.error("Something went wrong.");
+      toast.error("Algo deu errado.");
     } finally {
       setLoading(false);
     }
@@ -92,10 +92,10 @@ export const CategoryForm: React.FC<CategoryFormProps> = ({ initialData, billboa
       );
       router.refresh();
       router.push(`/${params.storeId}/categories`);
-      toast.success("Category deleted");
+      toast.success("Category removida");
     } catch (error) {
       toast.error(
-        "Make sure you removed all products using this category first."
+        "Cheque se você removeu todas os produtos que usam essa categoria."
       );
     } finally {
       setLoading(false);
@@ -136,11 +136,11 @@ export const CategoryForm: React.FC<CategoryFormProps> = ({ initialData, billboa
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Name</FormLabel>
+                  <FormLabel>Nome</FormLabel>
                   <FormControl>
                     <Input
                       disabled={loading}
-                      placeholder="Category name"
+                      placeholder="Nome da categoria"
                       {...field}
                     />
                   </FormControl>
@@ -187,7 +187,7 @@ export const CategoryForm: React.FC<CategoryFormProps> = ({ initialData, billboa
               onClick={() => router.push(`/${params.storeId}/categories`)}
               variant="outline"
             >
-              Cancel
+              Cancelar
             </Button>
             <Button disabled={loading} type="submit">
               {action}
