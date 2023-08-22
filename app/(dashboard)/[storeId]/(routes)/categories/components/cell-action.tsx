@@ -35,7 +35,7 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
         `/api/${params.storeId}/categories/${data.id}`
       );
       router.refresh();
-      toast.success("Category removida");
+      toast.success("Categoria removida");
     } catch (error) {
       toast.error(
         "Cheque se você removeu todos os produtos que usam essa categoria."
@@ -48,7 +48,7 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
 
   const onCopy = (id: string) => {
     navigator.clipboard.writeText(id);
-    toast.success("Category Id copied to the clipboard.");
+    toast.success("Categoria ID copiado para área de transferência.");
   };
   return (
     <>
