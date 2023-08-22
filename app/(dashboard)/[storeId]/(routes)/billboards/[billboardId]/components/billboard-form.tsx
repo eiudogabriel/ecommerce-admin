@@ -45,12 +45,12 @@ export const BillboardForm: React.FC<BillboardFormProps> = ({
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const title = initialData ? "Edit Billboard" : "Create Billboard";
-  const description = initialData ? "Edit a Billboard" : "Add a new Billboard";
+  const title = initialData ? "Edite a Billboard" : "Crie uma Billboard";
+  const description = initialData ? "Edite a billboard" : "Adicione uma nova billboard";
   const toastMessage = initialData
-    ? "Billboard updated."
-    : "Billboard created.";
-  const action = initialData ? "Save changes" : "Create";
+    ? "Billboard atualizada."
+    : "Billboard criada.";
+  const action = initialData ? "Salvar Alterações" : "Criar";
 
   const form = useForm<BillboardFormValues>({
     resolver: zodResolver(formSchema),
@@ -92,7 +92,7 @@ export const BillboardForm: React.FC<BillboardFormProps> = ({
       toast.success("Billboard deleted");
     } catch (error) {
       toast.error(
-        "Make sure you removed all categories using this billboard first."
+        "Cheque se você removeu todas as categorias que usam essa billboard."
       );
     } finally {
       setLoading(false);
@@ -132,7 +132,7 @@ export const BillboardForm: React.FC<BillboardFormProps> = ({
             name="imageUrl"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Background Image</FormLabel>
+                <FormLabel>Imagem de Fundo</FormLabel>
                 <FormControl>
                   <ImageUpload
                     value={field.value ? [field.value] : []}
@@ -151,11 +151,11 @@ export const BillboardForm: React.FC<BillboardFormProps> = ({
               name="label"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Label</FormLabel>
+                  <FormLabel>Rótulo</FormLabel>
                   <FormControl>
                     <Input
                       disabled={loading}
-                      placeholder="Billboard label"
+                      placeholder="Rótulo de billboard"
                       {...field}
                     />
                   </FormControl>
@@ -170,7 +170,7 @@ export const BillboardForm: React.FC<BillboardFormProps> = ({
               onClick={() => router.push(`/${params.storeId}/billboards`)}
               variant="outline"
             >
-              Cancel
+              Cancelar
             </Button>
             <Button disabled={loading} type="submit">
               {action}
