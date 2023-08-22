@@ -35,10 +35,10 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
         `/api/${params.storeId}/products/${data.id}`
       );
       router.refresh();
-      toast.success("Product deleted");
+      toast.success("Produto removido.");
     } catch (error) {
       toast.error(
-        "Something went wrong"
+        "Algo deu errado."
       );
     } finally {
       setLoading(false);
@@ -48,7 +48,7 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
 
   const onCopy = (id: string) => {
     navigator.clipboard.writeText(id);
-    toast.success("Product Id copied to the clipboard.");
+    toast.success("Produto ID copiado para área de transferência.");
   };
   return (
     <>
@@ -66,10 +66,10 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
-          <DropdownMenuLabel>Actions</DropdownMenuLabel>
+          <DropdownMenuLabel>Ações</DropdownMenuLabel>
           <DropdownMenuItem onClick={() => onCopy(data.id)}>
             <Copy className="mr-2 h-4 w-4" />
-            Copy Id
+            Copiar ID
           </DropdownMenuItem>
           <DropdownMenuItem
             onClick={() =>
@@ -77,11 +77,11 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
             }
           >
             <Edit className="mr-2 h-4 w-4" />
-            Update
+            Editar
           </DropdownMenuItem>
           <DropdownMenuItem onClick={() => setOpen(true)}>
             <Trash className="mr-2 h-4 w-4" />
-            Delete
+            Remover
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>

@@ -44,12 +44,12 @@ export const SizeForm: React.FC<SizeFormProps> = ({
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const title = initialData ? "Edit Size" : "Create Size";
-  const description = initialData ? "Edit a Size" : "Add a new Size";
+  const title = initialData ? "Editar Tamanho" : "Criar Tamanho";
+  const description = initialData ? "Editar um tamanho" : "Adicionar um novo tamanho";
   const toastMessage = initialData
-    ? "Size updated."
-    : "Size created.";
-  const action = initialData ? "Save changes" : "Create";
+    ? "Tamanho atualizado."
+    : "Tamanho criado.";
+  const action = initialData ? "Salvar Alterações" : "Criar";
 
   const form = useForm<SizeFormValues>({
     resolver: zodResolver(formSchema),
@@ -74,7 +74,7 @@ export const SizeForm: React.FC<SizeFormProps> = ({
       router.push(`/${params.storeId}/sizes`);
       toast.success(toastMessage);
     } catch (error) {
-      toast.error("Something went wrong.");
+      toast.error("Algo deu errado.");
     } finally {
       setLoading(false);
     }
@@ -88,10 +88,10 @@ export const SizeForm: React.FC<SizeFormProps> = ({
       );
       router.refresh();
       router.push(`/${params.storeId}/sizes`);
-      toast.success("Size deleted");
+      toast.success("Tamanho removido.");
     } catch (error) {
       toast.error(
-        "Make sure you removed all products using this size first."
+        "Cheque se você removeu todos os produtos que usam esse tamanho."
       );
     } finally {
       setLoading(false);
@@ -132,11 +132,11 @@ export const SizeForm: React.FC<SizeFormProps> = ({
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Name</FormLabel>
+                  <FormLabel>Nome</FormLabel>
                   <FormControl>
                     <Input
                       disabled={loading}
-                      placeholder="Size name"
+                      placeholder="Nome do tamanho"
                       {...field}
                     />
                   </FormControl>
@@ -149,11 +149,11 @@ export const SizeForm: React.FC<SizeFormProps> = ({
               name="value"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Value</FormLabel>
+                  <FormLabel>Valor</FormLabel>
                   <FormControl>
                     <Input
                       disabled={loading}
-                      placeholder="Size value"
+                      placeholder="Valor do tamanho"
                       {...field}
                     />
                   </FormControl>
@@ -168,7 +168,7 @@ export const SizeForm: React.FC<SizeFormProps> = ({
               onClick={() => router.push(`/${params.storeId}/sizes`)}
               variant="outline"
             >
-              Cancel
+              Cancelar
             </Button>
             <Button disabled={loading} type="submit">
               {action}
