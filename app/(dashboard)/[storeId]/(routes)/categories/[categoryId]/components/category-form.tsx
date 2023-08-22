@@ -52,7 +52,7 @@ export const CategoryForm: React.FC<CategoryFormProps> = ({ initialData, billboa
 
   const title = initialData ? "Editar Categoria" : "Criar Categoria";
   const description = initialData ? "Edite a categoria" : "Adicione uma nova categoria";
-  const toastMessage = initialData ? "Category atualizada." : "Category criada.";
+  const toastMessage = initialData ? "Categoria atualizada." : "Categoria criada.";
   const action = initialData ? "Salvar Alterações" : "Criar";
 
   const form = useForm<CategoryFormValues>({
